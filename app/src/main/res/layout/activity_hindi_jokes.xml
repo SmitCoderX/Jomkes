@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HindiJokes">
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/hindiViewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="8dp">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/hindiTabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabGravity="fill"
+            app:tabTextColor="@android:color/white"
+            app:tabMode="scrollable"
+            android:background="@color/colorPrimary"
+            app:tabSelectedTextColor="@android:color/white"
+            app:tabTextAppearance="@style/TextAppearance.Design.Tab" />
+    </androidx.viewpager.widget.ViewPager>
+
+    <FrameLayout
+        android:id="@+id/hindiJokesContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/hindiViewpager">
+    </FrameLayout>
+</RelativeLayout>

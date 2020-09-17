@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Jomkes</string>
+    <string name="Jokes">Jokes</string>
+    <string name="Memes">Memes</string>
+    <string name="Facts">Facts</string>
+    <string name="Meme_template">Meme Template</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="share">Share</string>
+    <string name="copy">Copy</string>
+    <string name="about_developer">About Developer</string>
+    <string name="credits"> \u2022 <b>Flaticon</b> for social media icons.
+        \n \u2022 <b>Icons8</b> for all the icons.
+    </string>
+
+    <string name="libs">\u2022 <b>Splash Screen</b> for showing Splash Screen. I was kinda feeling lazy to make myself.
+        \n\u2022 <b>Circle ImageView</b> for showing my pic xD lol.
+    </string>
+    <string name="version">v1.0</string>
+</resources>
