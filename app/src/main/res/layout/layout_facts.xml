@@ -16,8 +16,7 @@
         <ImageView
             android:id="@+id/fact_topic_imageView"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:src="@drawable/fact" />
+            android:layout_height="200dp" />
 
         <TextView
             android:id="@+id/fact_topic_textView"

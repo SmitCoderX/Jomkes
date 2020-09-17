@@ -14,22 +14,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".AllJokesActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
             android:name=".FactsActivity"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".AboutDevActivity"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".MiscellaneousJokesActivity"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".ProgrammingJokesActivity"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".PunJokesActivity"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".DarkJokesActivity"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".HindiJokes"

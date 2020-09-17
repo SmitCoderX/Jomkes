@@ -2,7 +2,6 @@ package com.smitcoderx.jomkes;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,6 +13,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -85,7 +86,7 @@ public class FactsActivity extends AppCompatActivity {
                 url = "https://gofugly.in/api/content/36";
                 break;
             default:
-                Toast.makeText(this, "Error Occurred", Toast.LENGTH_SHORT).show();
+                Snackbar.make(singleFactRecyclerView, "Error Occurred. Please try again Later", BaseTransientBottomBar.LENGTH_SHORT).show();
                 break;
         }
 
@@ -112,7 +113,7 @@ public class FactsActivity extends AppCompatActivity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                error.printStackTrace();
             }
         });
 
