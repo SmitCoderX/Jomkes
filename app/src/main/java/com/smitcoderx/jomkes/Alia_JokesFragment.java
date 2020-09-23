@@ -1,6 +1,8 @@
 package com.smitcoderx.jomkes;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,16 +17,21 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 
 public class Alia_JokesFragment extends Fragment {
 
+    public static int confirmation = 0;
+    ProgressDialog progressDialog;
     private RecyclerView recyclerView;
     private JokesAdapter jokesAdapter;
     private ArrayList<JokesModelClass> list;
@@ -45,7 +52,7 @@ public class Alia_JokesFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
 
         list = new ArrayList<>();
-
+        showProgressDialog();
         requestQueue = Volley.newRequestQueue(this.getContext());
         parseJSON();
 
@@ -121,8 +128,18 @@ public class Alia_JokesFragment extends Fragment {
                                 list.add(new JokesModelClass(jokes, "", ""));
                             }
 
-                            jokesAdapter = new JokesAdapter(list, getContext());
-                            recyclerView.setAdapter(jokesAdapter);
+                            Runnable progressRunnable = new Runnable() {
+                                @Override
+                                public void run() {
+                                    progressDialog.cancel();
+                                    jokesAdapter = new JokesAdapter(list, getContext());
+                                    recyclerView.setAdapter(jokesAdapter);
+                                }
+                            };
+
+                            Handler pdCanceller = new Handler();
+                            pdCanceller.postDelayed(progressRunnable, 1000);
+                            confirmation = 1;
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -135,5 +152,28 @@ public class Alia_JokesFragment extends Fragment {
         });
 
         requestQueue.add(request);
+    }
+
+    public void showProgressDialog() {
+        progressDialog = new ProgressDialog(getContext());
+        progressDialog.show();
+        progressDialog.setContentView(R.layout.custom_dialog);
+        progressDialog.setCanceledOnTouchOutside(false);
+        Objects.requireNonNull(progressDialog.getWindow()).setBackgroundDrawableResource(android.R.color.transparent);
+        Runnable progressRunnable = new Runnable() {
+
+            @Override
+            public void run() {
+                if (confirmation == 1) {
+                    progressDialog.cancel();
+                    //Toast.makeText(getContext(), "Internet slow/not available", Toast.LENGTH_SHORT).show();
+                } else if (confirmation != 1) {
+                    progressDialog.cancel();
+                    Snackbar.make(recyclerView, "Internet slow/not available", BaseTransientBottomBar.LENGTH_SHORT).show();
+                }
+            }
+        };
+        Handler pdCanceller = new Handler();
+        pdCanceller.postDelayed(progressRunnable, 4000);
     }
 }

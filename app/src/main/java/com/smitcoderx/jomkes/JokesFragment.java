@@ -1,6 +1,7 @@
 package com.smitcoderx.jomkes;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,8 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.roger.catloadinglibrary.CatLoadingView;
 
 import java.util.ArrayList;
 
@@ -33,16 +36,14 @@ public class JokesFragment extends Fragment {
         adapter = new FactTopicAdapter(getContext(), list);
         recyclerView.setAdapter(adapter);
         adapter.setOnItemClickListener(new FactTopicAdapter.OnItemClickListener() {
+
             @Override
             public void onItemClick(int position) {
 
-                if (position == 0)
-                {
+                if (position == 0) {
                     Intent hj = new Intent(getActivity(), HindiJokes.class);
                     startActivity(hj);
-                }
-                else
-                {
+                } else {
                     Intent all = new Intent(getActivity(), AllJokesActivity.class);
                     FactTopicModel currentItem = list.get(position);
                     all.putExtra(EXTRA_TITLE, currentItem.getName());

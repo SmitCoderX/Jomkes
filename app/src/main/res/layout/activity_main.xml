@@ -1,24 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity">
 
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/bottom_navigation"/>
+        android:layout_above="@+id/bottom_navigation" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
+    <com.gauravk.bubblenavigation.BubbleNavigationConstraintView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        app:menu="@menu/bottom_navigation"
-        android:background="?android:attr/windowBackground"
-        app:itemHorizontalTranslationEnabled="true"/>
+        android:background="@android:color/white"
+        android:layout_centerHorizontal="true"
+        android:elevation="8dp"
+        android:padding="12dp"
+        app:bnc_mode="spread">
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/item_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_active="true"
+            app:bt_colorActive="@color/colorPrimary"
+            app:bt_colorInactive="@android:color/holo_purple"
+            app:bt_icon="@drawable/ic_home"
+            app:bt_title="Home" />
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/item_jokes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_active="true"
+            app:bt_colorActive="@color/colorPrimary"
+            app:bt_colorInactive="@android:color/holo_purple"
+            app:bt_icon="@drawable/joke"
+            app:bt_title="@string/Jokes" />
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/item_memes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_active="true"
+            app:bt_colorActive="@color/colorPrimary"
+            app:bt_colorInactive="@android:color/holo_purple"
+            app:bt_icon="@drawable/meme"
+            app:bt_title="@string/Memes" />
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/item_facts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_active="true"
+            app:bt_colorActive="@color/colorPrimary"
+            app:bt_colorInactive="@android:color/holo_purple"
+            app:bt_icon="@drawable/fact"
+            app:bt_title="@string/Facts" />
+
+    </com.gauravk.bubblenavigation.BubbleNavigationConstraintView>
 
 </RelativeLayout>

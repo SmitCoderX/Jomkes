@@ -31,6 +31,8 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
+    //AdMob
+    implementation 'com.google.android.gms:play-services-ads:19.4.0'
 
     //material.io
     implementation 'com.google.android.material:material:1.2.1'
@@ -45,4 +47,10 @@ dependencies {
 
     //CircularImageView
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    //BubbleNavigation
+    implementation 'com.gauravk.bubblenavigation:bubblenavigation:1.0.7'
+
+    //loading
+    implementation 'com.roger.catloadinglibrary:catloadinglibrary:1.0.5'
 }

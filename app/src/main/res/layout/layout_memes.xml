@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:elevation="8dp"
+            app:cardElevation="8dp"
             app:cardCornerRadius="10dp">
 
             <RelativeLayout
@@ -28,7 +29,7 @@
                     android:id="@+id/image_meme"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="8dp"
                     android:src="@drawable/ic_launcher_background" />
 
                 <TextView
@@ -36,7 +37,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/image_meme"
-                    android:text="Author's Name: "
+                    android:text="@string/authors_name"
                     android:textSize="20sp" />
 
                 <TextView
@@ -46,10 +47,18 @@
                     android:layout_below="@+id/image_meme"
                     android:layout_marginStart="4dp"
                     android:layout_toEndOf="@id/textHardCodedAuthor"
-                    android:text="Mr. SmitCoderX "
+                    android:text="@string/smitcoderx"
                     android:textColor="@android:color/black"
                     android:textSize="20sp" />
 
+                <TextView
+                    android:id="@+id/textHardCodedUpVotes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textHardCodedAuthor"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/upvotes"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/textViewUps"
@@ -57,6 +66,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/textHardCodedAuthor"
                     android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_toEndOf="@id/textHardCodedUpVotes"
                     android:textColor="@android:color/black"
                     android:textSize="20sp" />
 
@@ -71,6 +82,8 @@
         android:layout_marginEnd="20dp"
         android:backgroundTint="@color/colorPrimary"
         android:src="@drawable/ic_down"
+        app:elevation="8dp"
+        android:elevation="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/relativeLayout"
         app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />

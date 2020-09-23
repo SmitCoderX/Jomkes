@@ -4,11 +4,13 @@ public class MemeModelClass {
 
     private String mURL;
     private String mCreator;
+    private String mTitle;
     private int mUpVotes;
 
-    public MemeModelClass(String URL, String creator, int upVotes) {
+    public MemeModelClass(String URL, String creator, String title, int upVotes) {
         this.mURL = URL;
         this.mCreator = creator;
+        this.mTitle = title;
         this.mUpVotes = upVotes;
     }
 
@@ -22,5 +24,9 @@ public class MemeModelClass {
 
     public int getUpVotes() {
         return mUpVotes;
+    }
+
+    public String getTitle() {
+        return mTitle;
     }
 }

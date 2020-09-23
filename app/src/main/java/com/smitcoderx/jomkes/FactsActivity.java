@@ -1,7 +1,9 @@
 package com.smitcoderx.jomkes;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -13,6 +15,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -21,16 +28,20 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import static com.smitcoderx.jomkes.FactsFragment.EXTRA_TITLE;
 
 public class FactsActivity extends AppCompatActivity {
 
+    public static int confirmation = 0;
+    ProgressDialog progressDialog;
     private RecyclerView singleFactRecyclerView;
     private JokesAdapter adapter;
     private RequestQueue requestQueue;
     private ArrayList<JokesModelClass> list;
     private String title;
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,11 +52,23 @@ public class FactsActivity extends AppCompatActivity {
         title = intent.getStringExtra(EXTRA_TITLE);
         setTitle(title);
 
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+
+            }
+        });
+
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
         singleFactRecyclerView = findViewById(R.id.singleFactRecyclerView);
         singleFactRecyclerView.setHasFixedSize(true);
         singleFactRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         list = new ArrayList<>();
+        showProgressDialog();
         requestQueue = Volley.newRequestQueue(this);
         parseJSON();
 
@@ -104,8 +127,17 @@ public class FactsActivity extends AppCompatActivity {
                                 list.add(new JokesModelClass(fact, "", ""));
 
                             }
-                            adapter = new JokesAdapter(list, FactsActivity.this);
-                            singleFactRecyclerView.setAdapter(adapter);
+                            Runnable progressRunnable = new Runnable() {
+                                @Override
+                                public void run() {
+                                    progressDialog.cancel();
+                                    adapter = new JokesAdapter(list, FactsActivity.this);
+                                    singleFactRecyclerView.setAdapter(adapter);
+                                }
+                            };
+                            Handler pdCanceller = new Handler();
+                            pdCanceller.postDelayed(progressRunnable, 1000);
+                            confirmation = 1;
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -118,5 +150,28 @@ public class FactsActivity extends AppCompatActivity {
         });
 
         requestQueue.add(request);
+    }
+
+    public void showProgressDialog() {
+        progressDialog = new ProgressDialog(FactsActivity.this);
+        progressDialog.show();
+        progressDialog.setContentView(R.layout.custom_dialog);
+        progressDialog.setCanceledOnTouchOutside(false);
+        Objects.requireNonNull(progressDialog.getWindow()).setBackgroundDrawableResource(android.R.color.transparent);
+        Runnable progressRunnable = new Runnable() {
+
+            @Override
+            public void run() {
+                if (confirmation == 1) {
+                    progressDialog.cancel();
+                    //Toast.makeText(getContext(), "Internet slow/not available", Toast.LENGTH_SHORT).show();
+                } else if (confirmation != 1) {
+                    progressDialog.cancel();
+                    Snackbar.make(singleFactRecyclerView, "Internet slow/not available", BaseTransientBottomBar.LENGTH_SHORT).show();
+                }
+            }
+        };
+        Handler pdCanceller = new Handler();
+        pdCanceller.postDelayed(progressRunnable, 4000);
     }
 }

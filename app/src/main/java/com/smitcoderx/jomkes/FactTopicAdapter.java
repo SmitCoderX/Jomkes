@@ -70,6 +70,7 @@ public class FactTopicAdapter extends RecyclerView.Adapter<FactTopicAdapter.Fact
                         int position = getAdapterPosition();
                         if (position != RecyclerView.NO_POSITION) {
                             mListener.onItemClick(position);
+ 
                         }
                     }
                 }
