@@ -1,5 +1,6 @@
 package com.smitcoderx.jomkes;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -9,6 +10,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import com.appus.splash.Splash;
 import com.gauravk.bubblenavigation.BubbleNavigationConstraintView;
 import com.gauravk.bubblenavigation.listener.BubbleNavigationChangeListener;
 
@@ -18,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        splashy();
 
         BubbleNavigationConstraintView bottomNavigation = findViewById(R.id.bottom_navigation);
 
@@ -37,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                 }
 
+                assert selectedFragment != null;
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         selectedFragment).commit();
             }
@@ -58,12 +63,18 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.about_dev:
-                Intent intent = new Intent(this, AboutDevActivity.class);
-                startActivity(intent);
+        if (item.getItemId() == R.id.about_dev) {
+            Intent intent = new Intent(this, AboutDevActivity.class);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
+    }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
+    public void splashy() {
+        Splash.Builder builder = new Splash.Builder(this, getSupportActionBar());
+        builder.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+        builder.setSplashImage(getResources().getDrawable(R.drawable.default_splash_image));
+        builder.perform();
     }
 }

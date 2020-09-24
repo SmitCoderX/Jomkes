@@ -50,4 +50,7 @@ dependencies {
 
     //BubbleNavigation
     implementation 'com.gauravk.bubblenavigation:bubblenavigation:1.0.7'
+
+    //Splash Screen
+    implementation 'pro.appus:zoom-splash:1.0.0'
 }
