@@ -47,7 +47,7 @@ public class Alia_JokesFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
 
         list = new ArrayList<>();
-        showProgressDialog();
+        //showProgressDialog();
         requestQueue = Volley.newRequestQueue(this.getContext());
         parseJSON();
 
@@ -122,19 +122,20 @@ public class Alia_JokesFragment extends Fragment {
 
                                 list.add(new JokesModelClass(jokes, "", ""));
                             }
+                            jokesAdapter = new JokesAdapter(list, getContext());
+                            recyclerView.setAdapter(jokesAdapter);
 
-                            Runnable progressRunnable = new Runnable() {
+                      /*      Runnable progressRunnable = new Runnable() {
                                 @Override
                                 public void run() {
                                     progressDialog.cancel();
-                                    jokesAdapter = new JokesAdapter(list, getContext());
-                                    recyclerView.setAdapter(jokesAdapter);
                                 }
                             };
 
                             Handler pdCanceller = new Handler();
                             pdCanceller.postDelayed(progressRunnable, 1000);
                             confirmation = 1;
+                       */
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
