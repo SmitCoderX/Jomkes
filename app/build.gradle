@@ -50,7 +50,4 @@ dependencies {
 
     //BubbleNavigation
     implementation 'com.gauravk.bubblenavigation:bubblenavigation:1.0.7'
-
-    //loading
-    implementation 'com.roger.catloadinglibrary:catloadinglibrary:1.0.5'
 }

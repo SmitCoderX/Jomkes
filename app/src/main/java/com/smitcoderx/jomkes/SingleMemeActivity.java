@@ -4,11 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.squareup.picasso.Picasso;
-
 import static com.smitcoderx.jomkes.MemesFragment.EXTRA_CREATOR;
 import static com.smitcoderx.jomkes.MemesFragment.EXTRA_LIKES;
 import static com.smitcoderx.jomkes.MemesFragment.EXTRA_TITLE;

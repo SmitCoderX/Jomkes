@@ -24,16 +24,6 @@
         app:bnc_mode="spread">
 
         <com.gauravk.bubblenavigation.BubbleToggleView
-            android:id="@+id/item_home"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:bt_active="true"
-            app:bt_colorActive="@color/colorPrimary"
-            app:bt_colorInactive="@android:color/holo_purple"
-            app:bt_icon="@drawable/ic_home"
-            app:bt_title="Home" />
-
-        <com.gauravk.bubblenavigation.BubbleToggleView
             android:id="@+id/item_jokes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
