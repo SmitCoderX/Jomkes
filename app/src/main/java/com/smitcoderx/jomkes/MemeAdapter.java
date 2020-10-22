@@ -6,11 +6,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 public class MemeAdapter extends RecyclerView.Adapter<MemeAdapter.MemeViewHolder> {
@@ -45,8 +46,6 @@ public class MemeAdapter extends RecyclerView.Adapter<MemeAdapter.MemeViewHolder
         String title = modelClass.getTitle();
         int ups = modelClass.getUpVotes();
 
-        holder.authorsName.setText(creatorName);
-        holder.upVotes.setText("" + ups);
         Picasso.get().load(imageUrl).fit().centerInside().into(holder.memeImage);
     }
 
@@ -61,18 +60,11 @@ public class MemeAdapter extends RecyclerView.Adapter<MemeAdapter.MemeViewHolder
 
     public class MemeViewHolder extends RecyclerView.ViewHolder {
         ImageView memeImage;
-        TextView authorsName;
-        TextView upVotes;
-        FloatingActionButton button;
 
         public MemeViewHolder(@NonNull View itemView) {
             super(itemView);
 
             memeImage = itemView.findViewById(R.id.image_meme);
-            authorsName = itemView.findViewById(R.id.textViewAuthor);
-            upVotes = itemView.findViewById(R.id.textViewUps);
-            button = itemView.findViewById(R.id.fab_download);
-
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -84,9 +76,6 @@ public class MemeAdapter extends RecyclerView.Adapter<MemeAdapter.MemeViewHolder
                     }
                 }
             });
-
-
-
         }
     }
 }

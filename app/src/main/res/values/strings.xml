@@ -16,9 +16,16 @@
     <string name="libs">\u2022 <b>Splash Screen</b> for showing Splash Screen. I was kinda feeling lazy to make myself.
         \n\u2022 <b>Circle ImageView</b> for showing my pic xD lol.
     </string>
-    <string name="version">v1.0</string>
-    <string name="bannerAd">ca-app-pub-1192940219389757/9531628715</string>
+    <string name="version">Version- 1.2</string>
     <string name="authors_name">Author\'s Name:</string>
     <string name="smitcoderx">SmitCoderX</string>
     <string name="upvotes">Upvotes:</string>
+    <string name="India">Made with ❤ in India</string>
+    <string name="night_mode">Night Mode</string>
+    <string name="prefs">Preferences</string>
+    <string name="coffee">If you liked my work. Please consider buying me a Coffee.</string>
+    <string name="let_s_get_you_a_coffee">Let\'s Get you a Coffee</string>
+    <string name="things_text">Jokes, Memes and Facts</string>
+    <string name="hindi_jokes">Hindi Jokes</string>
+    <string name="meme_api">https://meme-api.herokuapp.com/gimme/20</string>
 </resources>

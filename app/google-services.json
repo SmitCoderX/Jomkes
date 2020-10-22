@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "665207347162",
+    "firebase_url": "https://jomkes.firebaseio.com",
+    "project_id": "jomkes",
+    "storage_bucket": "jomkes.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:665207347162:android:cc6120428fb97c932092e3",
+        "android_client_info": {
+          "package_name": "com.smitcoderx.jomkes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "665207347162-437cpq2abncrvh7keepclfpbuhgkimd1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkq0Jb1Hb2GQP6-9kVF56jBFhOzUcyMOg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "665207347162-437cpq2abncrvh7keepclfpbuhgkimd1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

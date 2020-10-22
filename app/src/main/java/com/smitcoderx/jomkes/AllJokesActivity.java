@@ -4,28 +4,29 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.Objects;
+
 import static com.smitcoderx.jomkes.JokesFragment.EXTRA_TITLE;
 
 public class AllJokesActivity extends AppCompatActivity {
@@ -39,32 +40,21 @@ public class AllJokesActivity extends AppCompatActivity {
     private ArrayList<JokesModelClass> list;
     private String title;
     private SwipeRefreshLayout layout;
-    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alljokes);
 
-        Intent intent = getIntent();
-        title = intent.getStringExtra(EXTRA_TITLE);
-        setTitle(title);
-
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-
-            }
-        });
-
-        mAdView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
-
         layout = findViewById(R.id.swipeRefresh);
+        TextView jokeTitle = findViewById(R.id.jokeTitle);
         allJokesRecyclerView = findViewById(R.id.allJokesRecyclerView);
         allJokesRecyclerView.setHasFixedSize(true);
         allJokesRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        Intent intent = getIntent();
+        title = intent.getStringExtra(EXTRA_TITLE);
+        jokeTitle.setText(title);
 
         list = new ArrayList<>();
         showProgressDialog();

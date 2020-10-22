@@ -1,15 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary"
     tools:context=".JokesFragment">
 
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/jokesTopicRecyclerView"
+    <LinearLayout
+        android:id="@+id/textViewJokeTitle"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="85dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/megrim"
+            android:gravity="center"
+            android:text="@string/Jokes"
+            android:textColor="@android:color/white"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/textViewJokeTitle"
+        android:background="@drawable/round_bg"
+        android:orientation="vertical">
 
 
-</FrameLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/jokesTopicRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="75dp" />
+
+    </RelativeLayout>
+</RelativeLayout>

@@ -22,7 +22,7 @@
             android:layout_marginLeft="4dp"
             android:layout_marginTop="10dp"
             android:text="Loading..."
-            android:textColor="#fff"
+            android:textColor="@color/backColor"
             android:textStyle="bold" />
 
     </LinearLayout>

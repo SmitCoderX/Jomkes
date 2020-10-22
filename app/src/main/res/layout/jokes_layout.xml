@@ -10,6 +10,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/back_color"
         android:padding="16dp">
 
         <TextView
@@ -17,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:textColor="@android:color/black"
+            android:textColor="@color/black"
             android:textSize="18sp" />
 
         <Button
@@ -31,10 +32,10 @@
             android:padding="16dp"
             android:text="@string/share"
             android:textSize="18sp"
-            app:backgroundTint="@android:color/transparent"
+            app:backgroundTint="@color/transparent"
             app:cornerRadius="8dp"
             app:rippleColor="#33AAAAAA"
-            app:strokeColor="@android:color/holo_purple"
+            app:strokeColor="@color/colorPrimaryDark"
             app:strokeWidth="2dp" />
 
         <Button
@@ -48,10 +49,10 @@
             android:padding="16dp"
             android:text="@string/copy"
             android:textSize="18sp"
-            app:backgroundTint="@android:color/transparent"
+            app:backgroundTint="@color/transparent"
             app:cornerRadius="8dp"
             app:rippleColor="#33AAAAAA"
-            app:strokeColor="@android:color/holo_purple"
+            app:strokeColor="@color/colorPrimaryDark"
             app:strokeWidth="2dp" />
 
 

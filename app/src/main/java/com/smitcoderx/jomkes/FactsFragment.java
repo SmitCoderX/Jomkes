@@ -5,8 +5,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -15,9 +16,8 @@ import java.util.ArrayList;
 public class FactsFragment extends Fragment {
 
     public static final String EXTRA_TITLE = "title";
-
-    private RecyclerView factTopicRecyclerView;
     ArrayList<FactTopicModel> mTopicList;
+    private RecyclerView factTopicRecyclerView;
     private FactTopicAdapter adapter;
 
     @Override
@@ -30,7 +30,7 @@ public class FactsFragment extends Fragment {
 
         factTopicRecyclerView = view.findViewById(R.id.factTopicRecyclerView);
         factTopicRecyclerView.setHasFixedSize(true);
-        factTopicRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
+        factTopicRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter = new FactTopicAdapter(getContext(), mTopicList);
         factTopicRecyclerView.setAdapter(adapter);
         adapter.setOnItemClickListener(new FactTopicAdapter.OnItemClickListener() {
@@ -49,16 +49,16 @@ public class FactsFragment extends Fragment {
 
     public void createTopic() {
         mTopicList = new ArrayList<>();
-        mTopicList.add(new FactTopicModel(R.drawable.animals, "Animal Facts"));
-        mTopicList.add(new FactTopicModel(R.drawable.celebrity, "Celebrity Facts"));
-        mTopicList.add(new FactTopicModel(R.drawable.cricket, "Cricket Facts"));
-        mTopicList.add(new FactTopicModel(R.drawable.history, "History Facts"));
-        mTopicList.add(new FactTopicModel(R.drawable.human, "Human Body Facts"));
-        mTopicList.add(new FactTopicModel(R.drawable.marijuana, "Marijuana Facts"));
-        mTopicList.add(new FactTopicModel(R.drawable.mobile, "Mobile Facts"));
-        mTopicList.add(new FactTopicModel(R.drawable.movie, "Movie/Shows Facts"));
-        mTopicList.add(new FactTopicModel(R.drawable.nature, "Nature Facts"));
-        mTopicList.add(new FactTopicModel(R.drawable.random, "Random Facts"));
+        mTopicList.add(new FactTopicModel("Animal Facts"));
+        mTopicList.add(new FactTopicModel("Celebrity Facts"));
+        mTopicList.add(new FactTopicModel("Cricket Facts"));
+        mTopicList.add(new FactTopicModel("History Facts"));
+        mTopicList.add(new FactTopicModel("Human Body Facts"));
+        mTopicList.add(new FactTopicModel("Marijuana Facts"));
+        mTopicList.add(new FactTopicModel("Mobile Facts"));
+        mTopicList.add(new FactTopicModel("Movie/Shows Facts"));
+        mTopicList.add(new FactTopicModel("Nature Facts"));
+        mTopicList.add(new FactTopicModel("Random Facts"));
     }
 
 }

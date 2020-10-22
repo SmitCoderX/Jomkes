@@ -9,16 +9,26 @@
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/bottom_navigation" />
+        android:layout_height="match_parent" />
+
+    <ImageView
+        android:id="@+id/darkNight"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/night"
+        app:tint="@color/black" />
+
 
     <com.gauravk.bubblenavigation.BubbleNavigationConstraintView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@android:color/white"
         android:layout_centerHorizontal="true"
+        android:background="@color/backColor"
         android:elevation="8dp"
         android:padding="12dp"
         app:bnc_mode="spread">
@@ -29,8 +39,8 @@
             android:layout_height="wrap_content"
             app:bt_active="true"
             app:bt_colorActive="@color/colorPrimary"
-            app:bt_colorInactive="@android:color/holo_purple"
-            app:bt_icon="@drawable/joke"
+            app:bt_colorInactive="@color/colorPrimaryDark"
+            app:bt_icon="@drawable/jokes"
             app:bt_title="@string/Jokes" />
 
         <com.gauravk.bubblenavigation.BubbleToggleView
@@ -39,8 +49,8 @@
             android:layout_height="wrap_content"
             app:bt_active="true"
             app:bt_colorActive="@color/colorPrimary"
-            app:bt_colorInactive="@android:color/holo_purple"
-            app:bt_icon="@drawable/meme"
+            app:bt_colorInactive="@color/colorPrimaryDark"
+            app:bt_icon="@drawable/splashicon"
             app:bt_title="@string/Memes" />
 
         <com.gauravk.bubblenavigation.BubbleToggleView
@@ -49,9 +59,19 @@
             android:layout_height="wrap_content"
             app:bt_active="true"
             app:bt_colorActive="@color/colorPrimary"
-            app:bt_colorInactive="@android:color/holo_purple"
-            app:bt_icon="@drawable/fact"
+            app:bt_colorInactive="@color/colorPrimaryDark"
+            app:bt_icon="@drawable/facts"
             app:bt_title="@string/Facts" />
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/item_about"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_active="true"
+            app:bt_colorActive="@color/colorPrimary"
+            app:bt_colorInactive="@color/colorPrimaryDark"
+            app:bt_icon="@drawable/prefs"
+            app:bt_title="@string/prefs" />
 
     </com.gauravk.bubblenavigation.BubbleNavigationConstraintView>
 

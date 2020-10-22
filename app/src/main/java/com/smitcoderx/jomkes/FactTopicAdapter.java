@@ -37,7 +37,6 @@ public class FactTopicAdapter extends RecyclerView.Adapter<FactTopicAdapter.Fact
     public void onBindViewHolder(@NonNull FactTopicViewHolder holder, int position) {
         FactTopicModel currentItem = mTopicModelArrayList.get(position);
 
-        holder.fact_img.setImageResource(currentItem.getImage());
         holder.fact_text.setText(currentItem.getName());
     }
 
@@ -58,7 +57,6 @@ public class FactTopicAdapter extends RecyclerView.Adapter<FactTopicAdapter.Fact
         public FactTopicViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            fact_img = itemView.findViewById(R.id.fact_topic_imageView);
             fact_text = itemView.findViewById(R.id.fact_topic_textView);
 
             itemView.setOnClickListener(new View.OnClickListener() {

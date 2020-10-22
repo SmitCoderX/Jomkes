@@ -3,23 +3,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context=".FactsActivity">
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/singleFactRecyclerView"
+    <LinearLayout
+        android:id="@+id/textViewAllJokesTitle"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="85dp">
 
-    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/adView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        ads:adSize="BANNER"
-        ads:adUnitId="@string/bannerAd">
+        <TextView
+            android:id="@+id/factTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/megrim"
+            android:gravity="center"
+            android:text="@string/Memes"
+            android:textColor="@android:color/white"
+            android:textSize="25sp"
+            android:textStyle="bold" />
 
-    </com.google.android.gms.ads.AdView>
+    </LinearLayout>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/textViewAllJokesTitle"
+        android:background="@drawable/round_bg">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/singleFactRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp" />
+
+    </RelativeLayout>
 </RelativeLayout>

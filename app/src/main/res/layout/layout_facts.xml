@@ -11,23 +11,18 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/back_color"
         android:padding="16dp">
-
-        <ImageView
-            android:id="@+id/fact_topic_imageView"
-            android:layout_width="match_parent"
-            android:layout_height="200dp" />
 
         <TextView
             android:id="@+id/fact_topic_textView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/fact_topic_imageView"
-            android:layout_marginTop="10dp"
+            android:layout_height="150dp"
+            android:fontFamily="@font/macondo_swash_caps"
             android:gravity="center"
-            android:text="Topic Name"
-            android:textColor="@android:color/black"
-            android:textSize="25sp" />
+            android:text="@string/app_name"
+            android:textColor="@color/black"
+            android:textSize="40sp" />
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

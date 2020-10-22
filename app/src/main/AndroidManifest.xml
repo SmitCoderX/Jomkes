@@ -12,7 +12,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppThemeNoActionBar">
+        <activity
+            android:name=".MainActivity"
+            android:launchMode="singleTop" />
         <activity
             android:name=".SingleMemeActivity"
             android:parentActivityName=".MainActivity" />
@@ -28,7 +31,7 @@
         <activity
             android:name=".HindiJokes"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -37,8 +40,8 @@
         </activity>
 
         <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-1192940219389757~1480257610" />
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

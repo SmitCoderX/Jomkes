@@ -4,6 +4,8 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,11 +15,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 import org.json.JSONArray;
@@ -36,27 +33,16 @@ public class FactsActivity extends AppCompatActivity {
     private RequestQueue requestQueue;
     private ArrayList<JokesModelClass> list;
     private String title;
-    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_facts);
 
+        TextView factTitle = findViewById(R.id.factTitle);
         Intent intent = getIntent();
         title = intent.getStringExtra(EXTRA_TITLE);
-        setTitle(title);
-
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-
-            }
-        });
-
-        mAdView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
+        factTitle.setText(title);
 
         singleFactRecyclerView = findViewById(R.id.singleFactRecyclerView);
         singleFactRecyclerView.setHasFixedSize(true);
@@ -159,8 +145,7 @@ public class FactsActivity extends AppCompatActivity {
             public void run() {
                 if (confirmation == 1) {
                     progressDialog.cancel();
-                    //Toast.makeText(getContext(), "Internet slow/not available", Toast.LENGTH_SHORT).show();
-                } else if (confirmation != 1) {
+                } else {
                     progressDialog.cancel();
                     Snackbar.make(singleFactRecyclerView, "Internet slow/not available", BaseTransientBottomBar.LENGTH_SHORT).show();
                 }

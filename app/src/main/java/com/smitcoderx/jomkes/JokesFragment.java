@@ -5,9 +5,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.ArrayList;
 
 public class JokesFragment extends Fragment {
@@ -50,10 +52,11 @@ public class JokesFragment extends Fragment {
 
     public void createJokesTopic() {
         list = new ArrayList<>();
-        list.add(new FactTopicModel(R.drawable.hindi, "Hindi Jokes"));
-        list.add(new FactTopicModel(R.drawable.dark, "Dark Jokes"));
-        list.add(new FactTopicModel(R.drawable.pun, "Pun Jokes"));
-        list.add(new FactTopicModel(R.drawable.programming, "Programming Jokes"));
-        list.add(new FactTopicModel(R.drawable.misc, "Miscellaneous Jokes"));
+        list.add(new FactTopicModel("Hindi Jokes"));
+        list.add(new FactTopicModel("Dark Jokes"));
+        list.add(new FactTopicModel("Pun Jokes"));
+        list.add(new FactTopicModel("Programming Jokes"));
+        list.add(new FactTopicModel("Miscellaneous Jokes"));
     }
+
 }

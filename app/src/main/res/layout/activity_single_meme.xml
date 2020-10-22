@@ -1,76 +1,178 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context=".SingleMemeActivity">
 
-    <ScrollView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <RelativeLayout
+        <LinearLayout
+            android:id="@+id/textViewSingleMemeTitle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp">
-
-            <ImageView
-                android:id="@+id/meme_ImageView"
-                android:layout_width="match_parent"
-                android:layout_height="400dp" />
+            android:layout_height="85dp">
 
             <TextView
-                android:id="@+id/titleTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/meme_ImageView"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/megrim"
                 android:gravity="center"
-                android:text="@string/app_name"
-                android:textColor="@android:color/black"
-                android:textSize="25sp" />
+                android:text="@string/Memes"
+                android:textColor="@android:color/white"
+                android:textSize="25sp"
+                android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/authorHC"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/titleTextView"
-                android:layout_marginTop="4dp"
-                android:text="@string/authors_name"
-                android:textSize="20sp" />
+        </LinearLayout>
 
-            <TextView
-                android:id="@+id/authorTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/titleTextView"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="4dp"
-                android:layout_toEndOf="@id/authorHC"
-                android:text="@string/smitcoderx"
-                android:textColor="@android:color/black"
-                android:textSize="20sp" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/textViewSingleMemeTitle"
+            android:background="@drawable/round_bg"
+            android:scrollbars="none">
 
-            <TextView
-                android:id="@+id/upVotesHC"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/authorHC"
-                android:layout_marginTop="4dp"
-                android:text="@string/upvotes"
-                android:textSize="20sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_bg"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/upVotesTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/authorHC"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="4dp"
-                android:layout_toEndOf="@id/upVotesHC"
-                android:textColor="@android:color/black"
-                android:textSize="20sp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="350dp"
+                    android:layout_margin="15dp"
+                    android:background="@drawable/meme_bg"
+                    android:orientation="vertical"
+                    android:padding="10dp">
 
-        </RelativeLayout>
-    </ScrollView>
-</RelativeLayout>
+                    <ImageView
+                        android:id="@+id/meme_ImageView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY" />
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/meme_ImageView"
+                    android:layout_margin="15dp"
+                    android:background="@drawable/meme_bg"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/titleTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/app_name"
+                        android:textColor="@color/black"
+                        android:textSize="25sp" />
+
+                    <TextView
+                        android:id="@+id/authorHC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/titleTextView"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/authors_name"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/authorTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/titleTextView"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_toEndOf="@id/authorHC"
+                        android:text="@string/smitcoderx"
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/upVotesHC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/authorHC"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/upvotes"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/upVotesTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/authorHC"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_toEndOf="@id/upVotesHC"
+                        android:layout_marginBottom="8dp"
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+
+                </RelativeLayout>
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom|end"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="80dp"
+        android:src="@drawable/ic_down"
+        android:tooltipText="Download Meme"
+        android:visibility="invisible"
+        app:backgroundTint="@color/colorPrimary"
+        app:elevation="6dp"
+        app:pressedTranslationZ="12dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom|end"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="130dp"
+        android:src="@drawable/ic_share"
+        android:tooltipText="Share Meme"
+        android:visibility="invisible"
+        app:backgroundTint="@color/colorPrimary"
+        app:elevation="6dp"
+        app:pressedTranslationZ="12dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_opener"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="20dp"
+        app:fabCustomSize="60dp"
+        app:elevation="15dp"
+        android:background="@android:color/white"
+        android:backgroundTint="@android:color/white"
+        android:src="@drawable/splashicon"
+        app:backgroundTint="@color/colorPrimary"
+        app:borderWidth="2dp"
+        app:maxImageSize="40dp" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

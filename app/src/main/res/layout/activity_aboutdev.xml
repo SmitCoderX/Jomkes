@@ -1,161 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/black"
-    android:padding="6dp"
-    android:orientation="vertical"
+    android:minWidth="200dp"
+    android:background="@color/colorPrimary"
     tools:context=".AboutDevActivity">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
+    <LinearLayout
+        android:id="@+id/textViewAllJokesTitle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:elevation="20dp"
-        android:padding="20dp"
-        app:cardBackgroundColor="#FE1D1D2F"
-        app:cardCornerRadius="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="85dp">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/jokeTitle"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="15dp">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/megrim"
+            android:gravity="center"
+            android:text="@string/about_developer"
+            android:textColor="@android:color/white"
+            android:textSize="25sp"
+            android:textStyle="bold" />
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/circleImageView"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp"
-                android:src="@drawable/anirudh"
-                app:civ_border_color="@color/primaryColor"
-                app:civ_border_width="2dp" />
+    </LinearLayout>
 
-            <TextView
-                android:id="@+id/textName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                android:text="Anirudh Sharma"
-                android:textColor="@android:color/white"
-                android:textSize="30sp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/textViewAllJokesTitle"
+        android:background="@drawable/round_bg"
+        android:orientation="vertical"
+        android:padding="10dp">
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Android Developer/Enthusiast"
-                android:textColor="#c4c4c4"
-                android:textSize="15sp"
-                app:layout_constraintTop_toBottomOf="@+id/textName"
-                tools:layout_editor_absoluteX="6dp" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="20dp"
+            android:padding="20dp"
+            app:cardBackgroundColor="#FE1D1D2F"
+            app:cardCornerRadius="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
-                android:id="@+id/linearLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="15dp">
 
-                <ImageView
-                    android:id="@+id/web"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:onClick="openWeb"
-                    android:src="@drawable/web" />
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/circleImageView"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/anirudh"
+                    app:civ_border_color="@color/colorPrimary"
+                    app:civ_border_width="2dp" />
 
-                <ImageView
-                    android:id="@+id/github"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_marginStart="30dp"
-                    android:onClick="openGit"
-                    android:src="@drawable/github" />
+                <TextView
+                    android:id="@+id/textName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:text="Anirudh Sharma"
+                    android:textColor="@android:color/white"
+                    android:textSize="30sp" />
 
-                <ImageView
-                    android:id="@+id/insta"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_marginStart="30dp"
-                    android:onClick="openInsta"
-                    android:src="@drawable/instagram" />
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Android Developer/Enthusiast"
+                    android:textColor="#c4c4c4"
+                    android:textSize="15sp"
+                    app:layout_constraintTop_toBottomOf="@+id/textName"
+                    tools:layout_editor_absoluteX="6dp" />
 
-                <ImageView
-                    android:id="@+id/twitter"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_marginStart="30dp"
-                    android:onClick="openTwitter"
-                    android:src="@drawable/twitter" />
+                <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/web"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:onClick="openWeb"
+                        android:src="@drawable/web" />
+
+                    <ImageView
+                        android:id="@+id/github"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginStart="30dp"
+                        android:onClick="openGit"
+                        android:src="@drawable/github" />
+
+                    <ImageView
+                        android:id="@+id/insta"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginStart="30dp"
+                        android:onClick="openInsta"
+                        android:src="@drawable/instagram" />
+
+                    <ImageView
+                        android:id="@+id/twitter"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginStart="30dp"
+                        android:onClick="openTwitter"
+                        android:src="@drawable/twitter" />
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <RelativeLayout
+        <ScrollView
+            android:id="@+id/scrollView2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
 
-            <TextView
-                android:id="@+id/text1"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="30dp"
-                android:text="Credits"
-                android:textColor="#fff"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/text2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/text1"
-                android:layout_marginStart="35dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="35dp"
-                android:text="@string/credits"
-                android:textColor="#fff"
-                android:textSize="14sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="30dp"
+                    android:text="Credits"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/text3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/text2"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="15dp"
-                android:text="Libraries"
-                android:textColor="#fff"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="35dp"
+                    android:text="@string/credits"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
 
-            <TextView
-                android:id="@+id/text4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/text3"
-                android:layout_marginStart="35dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="35dp"
-                android:text="@string/libs"
-                android:textColor="#fff"
-                android:textSize="14sp" />
-        </RelativeLayout>
-    </ScrollView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="15dp"
+                    android:text="Libraries"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-</LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="35dp"
+                    android:text="@string/libs"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</RelativeLayout>

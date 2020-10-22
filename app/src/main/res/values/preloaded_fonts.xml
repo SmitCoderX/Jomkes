@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/comfortaa_light</item>
+        <item>@font/dancing_script_bold</item>
+        <item>@font/macondo_swash_caps</item>
+        <item>@font/megrim</item>
+    </array>
+</resources>

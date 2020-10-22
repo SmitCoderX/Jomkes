@@ -4,42 +4,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context=".HindiJokes">
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/hindiViewpager"
+    <LinearLayout
+        android:id="@+id/aliaJokesExtra"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="8dp">
+        android:layout_height="85dp">
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/hindiTabLayout"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:tabGravity="fill"
-            app:tabTextColor="@android:color/white"
-            app:tabMode="scrollable"
-            android:background="@color/colorPrimary"
-            app:tabSelectedTextColor="@android:color/white"
-            app:tabTextAppearance="@style/TextAppearance.Design.Tab" />
-    </androidx.viewpager.widget.ViewPager>
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/megrim"
+            android:gravity="center"
+            android:text="@string/hindi_jokes"
+            android:textColor="@android:color/white"
+            android:textSize="25sp"
+            android:textStyle="bold" />
 
-    <FrameLayout
-        android:id="@+id/hindiJokesContainer"
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/hindiViewpager">
-    </FrameLayout>
+        android:layout_below="@id/aliaJokesExtra"
+        android:background="@drawable/round_bg">
 
-    <com.google.android.gms.ads.AdView
-        xmlns:ads="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/adView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        ads:adSize="BANNER"
-        ads:adUnitId="@string/bannerAd">
-    </com.google.android.gms.ads.AdView>
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/hindiViewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/round_bg">
 
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/hindiTabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                app:tabGravity="fill"
+                app:tabMode="scrollable"
+                app:tabIndicatorColor="@color/primaryColor"
+                app:tabSelectedTextColor="@android:color/black"
+                app:tabTextAppearance="@style/TextAppearance.Design.Tab"
+                app:tabTextColor="@android:color/white" />
+        </androidx.viewpager.widget.ViewPager>
+    </LinearLayout>
 </RelativeLayout>
