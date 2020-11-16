@@ -80,11 +80,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @SuppressLint("UseCompatLoadingForDrawables")
-    public void splashy() {
-
-    }
-
     private void checkAndRequestPermission() {
         int storage = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
         List<String> listPermissionChecked = new ArrayList<>();
